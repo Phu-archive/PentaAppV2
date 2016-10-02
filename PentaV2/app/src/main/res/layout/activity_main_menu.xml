@@ -8,16 +8,11 @@
     android:fitsSystemWindows="true"
     tools:context="thevcgroup.pentachannel.com.pentav2.MainMenu">
 
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
-
-        <android.support.v4.view.ViewPager
-            android:id="@+id/container"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+        android:orientation="vertical"
+        >
 
         <android.support.design.widget.AppBarLayout
             android:id="@+id/appbar"
@@ -43,7 +38,16 @@
 
         </android.support.design.widget.AppBarLayout>
 
-    </RelativeLayout>
+        <android.support.v4.view.ViewPager
+            android:id="@+id/container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+
+
+
+
+    </LinearLayout>
 
     <fragment
         android:id="@+id/nav_fragment"
