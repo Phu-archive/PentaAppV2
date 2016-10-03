@@ -11,6 +11,9 @@ import java.util.ArrayList;
 
 public class Navigation_Adapter extends RecyclerView.Adapter<Navigation_Adapter.ViewHolder> {
 
+    private ArrayList<TagQuery> tagQueryList;
+    private Context mContext;
+
     public static class ViewHolder extends RecyclerView.ViewHolder {
         // Your holder should contain a member variable
         // for any view that will be set as you render a row
@@ -29,9 +32,7 @@ public class Navigation_Adapter extends RecyclerView.Adapter<Navigation_Adapter.
         }
     }
 
-    private ArrayList<TagQuery> tagQueryList;
 
-    private Context mContext;
 
     public Navigation_Adapter(Context context, ArrayList<TagQuery> tag){
         tagQueryList = tag;
@@ -44,7 +45,7 @@ public class Navigation_Adapter extends RecyclerView.Adapter<Navigation_Adapter.
         LayoutInflater inflater = LayoutInflater.from(context);
 
         // Inflate the custom layout
-        View contactView = inflater.inflate(R.layout.navigation_adapter, parent, false);
+        View contactView = inflater.inflate(R.layout.adapter_navigation, parent, false);
 
         // Return a new holder instance
         ViewHolder viewHolder = new ViewHolder(contactView);

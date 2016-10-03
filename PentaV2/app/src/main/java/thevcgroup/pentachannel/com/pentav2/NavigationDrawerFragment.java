@@ -1,10 +1,13 @@
 package thevcgroup.pentachannel.com.pentav2;
 
 
+import android.app.Activity;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.SystemClock;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
+import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -12,7 +15,9 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
@@ -38,7 +43,6 @@ public class NavigationDrawerFragment extends Fragment {
     private DrawerLayout mDrawerLayout;
 
     ArrayList<TagQuery> QueryData = new ArrayList<TagQuery>();
-
     RecyclerView recyclerView;
 
 
@@ -61,6 +65,23 @@ public class NavigationDrawerFragment extends Fragment {
         Navigation_Adapter adapter = new Navigation_Adapter(getContext(),QueryData);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+
+        //Thank for code http://stackoverflow.com/questions/24471109/recyclerview-onclick
+        recyclerView.addOnItemTouchListener(new RecyclerItemClickListener(getContext(), recyclerView, new RecyclerItemClickListener.OnItemClickListener() {
+            @Override
+            public void onItemClick(View view, int position) {
+
+                Log.i("test",QueryData.get(position).getName());
+
+                Log.i("test",QueryData.get(position).getId());
+
+            }
+
+            @Override
+            public void onLongItemClick(View view, int position) {
+
+            }
+        }));
 
 
         return view;
@@ -123,7 +144,6 @@ public class NavigationDrawerFragment extends Fragment {
             }
         }
     }
-
 
 }
 

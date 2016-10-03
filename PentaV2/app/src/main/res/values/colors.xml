@@ -3,4 +3,16 @@
     <color name="colorPrimary">#009688</color>
     <color name="colorPrimaryDark">#00796B</color>
     <color name="colorAccent">#FF4081</color>
+
+    <color name="green">#00695C</color>
+    <color name="blue">#00838F</color>
+    <color name="dark_blue">#0277BD</color>
+
+
+    <integer-array name="androidcolors">
+        <item>@color/blue</item>
+        <item>@color/dark_blue</item>
+        <item>@color/green</item>
+    </integer-array>
+
 </resources>
