@@ -10,10 +10,11 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
-public class MainMenu extends AppCompatActivity {
+public class MainMenu extends AppCompatActivity implements NavigationToVideoAndChannel{
 
     private SectionsPagerAdapter mSectionsPagerAdapter;
 
@@ -62,6 +63,13 @@ public class MainMenu extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void sendID(TagQuery tagQuery) {
+        fragmentVideo.NavClick(tagQuery);
+        fragmentChannel.NavClick(tagQuery);
+        getSupportActionBar().setTitle(tagQuery.getName());
     }
 
     public class SectionsPagerAdapter extends FragmentPagerAdapter {

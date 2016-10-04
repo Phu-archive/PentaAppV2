@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -48,7 +49,16 @@ public class Fragment_video extends Fragment{
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
+        adapter.notifyDataSetChanged();
+
         return view;
+    }
+
+    public void NavClick(TagQuery tagQuery){
+        DownloadData downloadData = new DownloadData();
+        downloadData.execute("http://www.pentachannel.com/api/v2/link/tag/" + tagQuery.getId() +"/?page=1&per_page=20");
+
+        detailedVideos.clear();
     }
 
     class DownloadData extends AsyncTask<String, Void, String> {
@@ -95,6 +105,9 @@ public class Fragment_video extends Fragment{
                     detailedVideos.add(new DetailedVideo(video_img,ch_img,video_name,ch_name,created_date));
 
                     adapter.notifyDataSetChanged();
+
+                    Log.i("test", String.valueOf(adapter != null));
+                    Log.i("test",detailedVideos.get(i).getName_video());
 
                 }
 

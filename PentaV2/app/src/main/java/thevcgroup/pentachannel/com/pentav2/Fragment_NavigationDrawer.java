@@ -1,6 +1,7 @@
 package thevcgroup.pentachannel.com.pentav2;
 
 
+import android.app.Activity;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -36,6 +37,8 @@ public class Fragment_NavigationDrawer extends Fragment {
     RecyclerView recyclerView;
     Adapter_Navigation adapter;
 
+    NavigationToVideoAndChannel toVideoAndChannel;
+
 
     public Fragment_NavigationDrawer() {
 
@@ -67,6 +70,8 @@ public class Fragment_NavigationDrawer extends Fragment {
                 Log.i("test",QueryData.get(position).getId());
 
                 mDrawerLayout.closeDrawers();
+
+                toVideoAndChannel.sendID(QueryData.get(position));
 
             }
 
@@ -139,6 +144,11 @@ public class Fragment_NavigationDrawer extends Fragment {
         }
     }
 
+    @Override
+    public void onAttach(Activity activity) {
+        toVideoAndChannel = (NavigationToVideoAndChannel) activity;
+        super.onAttach(activity);
+    }
 }
 
 

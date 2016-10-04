@@ -54,6 +54,13 @@ public class Fragment_Channel extends Fragment {
         return view;
     }
 
+    public void NavClick(TagQuery tagQuery){
+        DownloadData downloadData = new DownloadData();
+        downloadData.execute("http://www.pentachannel.com/api/v2/channel/tag/"+ tagQuery.getId() +"/?page=1&per_page=20");
+
+        channelDatas.clear();
+    }
+
     class DownloadData extends AsyncTask<String, Void, String> {
 
         String data;
