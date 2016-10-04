@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,7 +16,6 @@ import org.json.JSONObject;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Random;
 
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
@@ -28,7 +26,7 @@ public class Fragment_video extends Fragment{
 
     RecyclerView recyclerView;
     ArrayList<DetailedVideo> detailedVideos = new ArrayList<>();
-    DetailedVideo_Adapter adapter;
+    Adapter_DetailedVideo adapter;
 
 
     public Fragment_video() {
@@ -43,10 +41,10 @@ public class Fragment_video extends Fragment{
         View view = inflater.inflate(R.layout.fragment_fragment_video, container, false);
 
         DownloadData downloadData = new DownloadData();
-        downloadData.execute("http://www.pentachannel.com/api/v2/link/tag/80/?page=1&per_page=20");
+        downloadData.execute("http://www.pentachannel.com/api/v2/link/tag/83/?page=1&per_page=20");
 
         recyclerView = (RecyclerView) view.findViewById(R.id.video_recycler_view);
-        adapter = new DetailedVideo_Adapter(getContext(),detailedVideos);
+        adapter = new Adapter_DetailedVideo(getContext(),detailedVideos);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
@@ -95,6 +93,8 @@ public class Fragment_video extends Fragment{
                     String created_date = ch.getString("create_at");
 
                     detailedVideos.add(new DetailedVideo(video_img,ch_img,video_name,ch_name,created_date));
+
+                    adapter.notifyDataSetChanged();
 
                 }
 

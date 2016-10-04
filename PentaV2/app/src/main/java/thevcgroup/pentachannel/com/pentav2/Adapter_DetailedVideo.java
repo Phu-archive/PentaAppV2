@@ -1,7 +1,6 @@
 package thevcgroup.pentachannel.com.pentav2;
 
 import android.content.Context;
-import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,13 +11,12 @@ import android.widget.TextView;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
-import java.util.Random;
 
 /**
  * Created by phu on 3/10/2559.
  */
 
-public class DetailedVideo_Adapter extends RecyclerView.Adapter<DetailedVideo_Adapter.ViewHolder>{
+public class Adapter_DetailedVideo extends RecyclerView.Adapter<Adapter_DetailedVideo.ViewHolder>{
 
     private ArrayList<DetailedVideo> detailedVideos;
     private Context mContext;
@@ -62,21 +60,21 @@ public class DetailedVideo_Adapter extends RecyclerView.Adapter<DetailedVideo_Ad
         }
     }
 
-    public DetailedVideo_Adapter(Context context, ArrayList<DetailedVideo> videos){
+    public Adapter_DetailedVideo(Context context, ArrayList<DetailedVideo> videos){
         detailedVideos = videos;
         mContext = context;
     }
 
     @Override
-    public DetailedVideo_Adapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public Adapter_DetailedVideo.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         Context context = parent.getContext();
         LayoutInflater inflater = LayoutInflater.from(context);
 
         // Inflate the custom layout
-        View contactView = inflater.inflate(R.layout.adapter_video, parent, false);
+        View contactView = inflater.inflate(R.layout.adapter_detailedvideo, parent, false);
 
         // Return a new holder instance
-        DetailedVideo_Adapter.ViewHolder viewHolder = new DetailedVideo_Adapter.ViewHolder(contactView);
+        Adapter_DetailedVideo.ViewHolder viewHolder = new Adapter_DetailedVideo.ViewHolder(contactView);
         return viewHolder;
     }
 

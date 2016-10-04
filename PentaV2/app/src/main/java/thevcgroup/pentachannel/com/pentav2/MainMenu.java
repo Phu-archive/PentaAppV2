@@ -1,8 +1,6 @@
 package thevcgroup.pentachannel.com.pentav2;
 
 import android.support.design.widget.TabLayout;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -12,13 +10,8 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.view.ViewGroup;
-
-import android.widget.TextView;
 
 public class MainMenu extends AppCompatActivity {
 
@@ -38,6 +31,7 @@ public class MainMenu extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setTitle("สุขภาพ");
         mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
 
         mViewPager = (ViewPager) findViewById(R.id.container);
@@ -46,8 +40,9 @@ public class MainMenu extends AppCompatActivity {
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(mViewPager);
 
-        NavigationDrawerFragment navigationDrawerFragment = (NavigationDrawerFragment)getSupportFragmentManager().findFragmentById(R.id.nav_fragment);
-        navigationDrawerFragment.setUp((DrawerLayout) findViewById(R.id.main_content),toolbar);
+        Fragment_NavigationDrawer fragmentNavigationDrawer = (Fragment_NavigationDrawer)getSupportFragmentManager().findFragmentById(R.id.nav_fragment);
+        fragmentNavigationDrawer.setUp((DrawerLayout) findViewById(R.id.main_content),toolbar);
+
 
     }
 

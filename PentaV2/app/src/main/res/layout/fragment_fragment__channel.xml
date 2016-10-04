@@ -4,11 +4,12 @@
     android:layout_height="match_parent"
     tools:context="thevcgroup.pentachannel.com.pentav2.Fragment_Channel">
 
-    <TextView
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/channel_recycler_view"
+        android:scrollbars="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="2"
-        android:textSize="100dp"
-        />
+        android:clickable="true"
+    />
 
 </FrameLayout>

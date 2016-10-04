@@ -9,7 +9,7 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-public class Navigation_Adapter extends RecyclerView.Adapter<Navigation_Adapter.ViewHolder> {
+public class Adapter_Navigation extends RecyclerView.Adapter<Adapter_Navigation.ViewHolder> {
 
     private ArrayList<TagQuery> tagQueryList;
     private Context mContext;
@@ -34,13 +34,13 @@ public class Navigation_Adapter extends RecyclerView.Adapter<Navigation_Adapter.
 
 
 
-    public Navigation_Adapter(Context context, ArrayList<TagQuery> tag){
+    public Adapter_Navigation(Context context, ArrayList<TagQuery> tag){
         tagQueryList = tag;
         mContext = context;
     }
 
     @Override
-    public Navigation_Adapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public Adapter_Navigation.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         Context context = parent.getContext();
         LayoutInflater inflater = LayoutInflater.from(context);
 
@@ -53,7 +53,7 @@ public class Navigation_Adapter extends RecyclerView.Adapter<Navigation_Adapter.
     }
 
     @Override
-    public void onBindViewHolder(Navigation_Adapter.ViewHolder holder, int position) {
+    public void onBindViewHolder(Adapter_Navigation.ViewHolder holder, int position) {
         TextView textView = holder.getTagTextView();
         textView.setText(tagQueryList.get(position).getName());
     }

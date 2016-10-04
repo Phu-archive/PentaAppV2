@@ -1,26 +1,18 @@
 package thevcgroup.pentachannel.com.pentav2;
 
 
-import android.app.Activity;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.os.SystemClock;
-import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
-import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
-import android.view.Gravity;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -28,25 +20,24 @@ import org.json.JSONObject;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.List;
 
-import okhttp3.HttpUrl;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 
 
 
-public class NavigationDrawerFragment extends Fragment {
+public class Fragment_NavigationDrawer extends Fragment {
 
     private ActionBarDrawerToggle drawerToggle;
     private DrawerLayout mDrawerLayout;
 
     ArrayList<TagQuery> QueryData = new ArrayList<TagQuery>();
     RecyclerView recyclerView;
+    Adapter_Navigation adapter;
 
 
-    public NavigationDrawerFragment() {
+    public Fragment_NavigationDrawer() {
 
     }
 
@@ -62,7 +53,7 @@ public class NavigationDrawerFragment extends Fragment {
 
         recyclerView = (RecyclerView) view.findViewById(R.id.recycle);
 
-        Navigation_Adapter adapter = new Navigation_Adapter(getContext(),QueryData);
+        adapter = new Adapter_Navigation(getContext(),QueryData);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
@@ -74,6 +65,8 @@ public class NavigationDrawerFragment extends Fragment {
                 Log.i("test",QueryData.get(position).getName());
 
                 Log.i("test",QueryData.get(position).getId());
+
+                mDrawerLayout.closeDrawers();
 
             }
 
@@ -138,6 +131,7 @@ public class NavigationDrawerFragment extends Fragment {
                     JSONObject object = array.getJSONObject(i);
 
                     QueryData.add(new TagQuery(object.getString("id"),object.getString("name")));
+                    adapter.notifyDataSetChanged();
                 }
             } catch (JSONException e) {
                 e.printStackTrace();

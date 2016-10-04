@@ -55,7 +55,7 @@
         android:layout_height="match_parent"
         app:layout="@layout/fragment_navigation_drawer"
         android:layout_gravity="start"
-        android:name="thevcgroup.pentachannel.com.pentav2.NavigationDrawerFragment"
+        android:name="thevcgroup.pentachannel.com.pentav2.Fragment_NavigationDrawer"
         tools:layout="@layout/fragment_navigation_drawer" />
 
 
