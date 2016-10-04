@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
@@ -20,6 +21,8 @@ public class Adapter_DetailedVideo extends RecyclerView.Adapter<Adapter_Detailed
 
     private ArrayList<DetailedVideo> detailedVideos;
     private Context mContext;
+    private final int VIEW_ITEM = 1;
+    Adapter_DetailedVideo.ViewHolder viewHolder;
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
         public ImageView video_img;
@@ -59,6 +62,14 @@ public class Adapter_DetailedVideo extends RecyclerView.Adapter<Adapter_Detailed
             return video_name;
         }
     }
+    public static class ProgressViewHolder extends RecyclerView.ViewHolder {
+        public ProgressBar progressBar;
+
+        public ProgressViewHolder(View v) {
+            super(v);
+            progressBar = (ProgressBar) v.findViewById(R.id.progressBar);
+        }
+    }
 
     public Adapter_DetailedVideo(Context context, ArrayList<DetailedVideo> videos){
         detailedVideos = videos;
@@ -70,12 +81,20 @@ public class Adapter_DetailedVideo extends RecyclerView.Adapter<Adapter_Detailed
         Context context = parent.getContext();
         LayoutInflater inflater = LayoutInflater.from(context);
 
-        // Inflate the custom layout
         View contactView = inflater.inflate(R.layout.adapter_detailedvideo, parent, false);
-
-        // Return a new holder instance
-        Adapter_DetailedVideo.ViewHolder viewHolder = new Adapter_DetailedVideo.ViewHolder(contactView);
+        viewHolder = new Adapter_DetailedVideo.ViewHolder(contactView);
         return viewHolder;
+
+
+
+//        if (viewType == VIEW_ITEM){
+//            View contactView = inflater.inflate(R.layout.adapter_detailedvideo, parent, false);
+//            viewHolder = new Adapter_DetailedVideo.ViewHolder(contactView);
+//        }else{
+//            View contactView = inflater.inflate(R.layout.progressbar, parent, false);
+//            viewHolder = new Adapter_DetailedVideo.ProgressViewHolder(contactView);
+//        }
+//        return viewHolder;
     }
 
     @Override

@@ -64,15 +64,8 @@ public class Fragment_NavigationDrawer extends Fragment {
         recyclerView.addOnItemTouchListener(new RecyclerItemClickListener(getContext(), recyclerView, new RecyclerItemClickListener.OnItemClickListener() {
             @Override
             public void onItemClick(View view, int position) {
-
-                Log.i("test",QueryData.get(position).getName());
-
-                Log.i("test",QueryData.get(position).getId());
-
                 mDrawerLayout.closeDrawers();
-
                 toVideoAndChannel.sendID(QueryData.get(position));
-
             }
 
             @Override
