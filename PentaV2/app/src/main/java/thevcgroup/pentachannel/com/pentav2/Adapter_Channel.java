@@ -68,7 +68,7 @@ public class Adapter_Channel extends RecyclerView.Adapter<Adapter_Channel.ViewHo
     public void onBindViewHolder(ViewHolder holder, int position) {
 
         ImageView channelImg = holder.getChannelImg();
-        Picasso.with(mContext).load(channelDatas.get(position).getCh_img()).into(channelImg);
+        Picasso.with(mContext).load(channelDatas.get(position).getCh_img()).placeholder(R.drawable.test_img).into(channelImg);
 
         TextView channelName = holder.getChannelName();
         channelName.setText(channelDatas.get(position).getCh_name());

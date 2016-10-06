@@ -100,10 +100,10 @@ public class Adapter_DetailedVideo extends RecyclerView.Adapter<Adapter_Detailed
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
         ImageView video_img = holder.getVideo_img();
-        Picasso.with(mContext).load(detailedVideos.get(position).getUrl_video_img()).into(video_img);
+        Picasso.with(mContext).load(detailedVideos.get(position).getUrl_video_img()).placeholder(R.drawable.test_img).into(video_img);
 
         ImageView ch_img = holder.getCh_img();
-        Picasso.with(mContext).load(detailedVideos.get(position).getUrl_channel_img()).into(ch_img);
+        Picasso.with(mContext).load(detailedVideos.get(position).getUrl_channel_img()).placeholder(R.drawable.test_img).into(ch_img);
 
         TextView ch_name = holder.getCh_name();
         ch_name.setText(detailedVideos.get(position).getName_channel());
