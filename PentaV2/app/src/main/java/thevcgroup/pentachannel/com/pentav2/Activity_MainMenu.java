@@ -14,7 +14,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
-public class MainMenu extends AppCompatActivity implements NavigationToVideoAndChannel{
+public class Activity_MainMenu extends AppCompatActivity implements NavigationToVideoAndChannel{
 
     private SectionsPagerAdapter mSectionsPagerAdapter;
 

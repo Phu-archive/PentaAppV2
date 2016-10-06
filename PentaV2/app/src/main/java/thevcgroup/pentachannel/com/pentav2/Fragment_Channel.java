@@ -1,6 +1,7 @@
 package thevcgroup.pentachannel.com.pentav2;
 
 
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
@@ -63,9 +64,10 @@ public class Fragment_Channel extends Fragment {
         recyclerView.addOnItemTouchListener(new RecyclerItemClickListener(getContext(), recyclerView, new RecyclerItemClickListener.OnItemClickListener() {
             @Override
             public void onItemClick(View view, int position) {
-                Log.i("test",String.valueOf(position));
-                Log.i("test",channelDatas.get(position).getCh_name());
-
+                Intent intent = new Intent(getActivity(),ActivityChannelPage.class);
+                intent.putExtra("ChannelName",channelDatas.get(position).getCh_name());
+                intent.putExtra("ChannelID",channelDatas.get(position).getId());
+                startActivity(intent);
             }
 
             @Override

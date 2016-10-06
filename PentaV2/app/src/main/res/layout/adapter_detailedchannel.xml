@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/test_img"
+        android:id="@+id/channelDetailed_videoImg" />
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Video Name"
+            android:textSize="20dp"
+            android:paddingTop="10dp"
+            android:id="@+id/channelDetailed_videoName"
+            android:paddingLeft="10dp"
+            />
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingLeft="10dp"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Detail: "
+                android:textSize="20dp"
+                android:paddingTop="10dp"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit"
+                android:textSize="20dp"
+                android:paddingTop="10dp"
+                android:id="@+id/channelDetailed_details" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+</LinearLayout>
