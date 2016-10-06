@@ -2,9 +2,11 @@ package thevcgroup.pentachannel.com.pentav2;
 
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -97,6 +99,28 @@ public class Fragment_video extends Fragment{
             }
         });
 
+        recyclerView.addOnItemTouchListener(new RecyclerItemClickListener(getContext(), recyclerView, new RecyclerItemClickListener.OnItemClickListener() {
+            @Override
+            public void onItemClick(View view, int position) {
+                if(detailedVideos.get(position).getVideoType().equals("Y")) {
+                    Intent intent = new Intent(getActivity(), ActivityVideoPage.class);
+                    intent.putExtra("type", detailedVideos.get(position).getVideoType());
+                    intent.putExtra("name", detailedVideos.get(position).getName_video());
+                    intent.putExtra("id", detailedVideos.get(position).getVideoID());
+                    startActivity(intent);
+                }else{
+                    Snackbar.make(view, detailedVideos.get(position).getVideoType() + " player type have not implemeted", Snackbar.LENGTH_SHORT).show();
+                }
+
+
+            }
+
+            @Override
+            public void onLongItemClick(View view, int position) {
+
+            }
+        }));
+
         return view;
     }
 
@@ -154,15 +178,14 @@ public class Fragment_video extends Fragment{
                     String video_name = ch.getString("name");
                     String ch_name = chData.getString("channel_name");
                     String created_date = ch.getString("create_at");
+                    String type_video = ch.getString("video_type");
+                    String id_video = ch.getString("video_id");
 
-                    detailedVideos.add(new DetailedVideo(video_img,ch_img,video_name,ch_name,created_date));
+                    detailedVideos.add(new DetailedVideo(video_img,ch_img,video_name,ch_name,created_date,type_video,id_video));
 
                     loading = true;
 
                     adapter.notifyDataSetChanged();
-
-//                    Log.i("test", String.valueOf(adapter != null));
-//                    Log.i("test",detailedVideos.get(i).getName_video());
 
                 }
 
@@ -173,10 +196,5 @@ public class Fragment_video extends Fragment{
         }
     }
 
-//    @Override
-//    public void onAttach(Activity activity) {
-//        loadMoreItems = (LoadMoreItems) activity;
-//        super.onAttach(activity);
-//    }
 }
 

@@ -6,13 +6,17 @@ public class DetailedVideo {
     String name_video;
     String name_channel;
     String created_time;
+    String videoType;
+    String videoID;
 
-    public DetailedVideo(String url_video_img,String url_channel_img,String name_video,String name_channel,String created_time){
+    public DetailedVideo(String url_video_img,String url_channel_img,String name_video,String name_channel,String created_time,String TypeVideo,String idVideo){
         this.url_video_img = url_video_img;
         this.url_channel_img =url_channel_img;
         this.name_video = name_video;
         this.name_channel = name_channel;
         this.created_time = created_time;
+        this.videoType = TypeVideo;
+        this.videoID = idVideo;
     }
 
     public String getCreated_time() {
@@ -33,5 +37,13 @@ public class DetailedVideo {
 
     public String getUrl_video_img() {
         return url_video_img;
+    }
+
+    public String getVideoType() {
+        return videoType;
+    }
+
+    public String getVideoID() {
+        return videoID;
     }
 }

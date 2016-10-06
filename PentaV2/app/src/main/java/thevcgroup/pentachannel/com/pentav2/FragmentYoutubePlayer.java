@@ -15,7 +15,7 @@ import com.google.android.youtube.player.YouTubePlayerSupportFragment;
 
 public class FragmentYoutubePlayer extends Fragment {
 
-    private static final String API_KEY = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
+    private static final String API_KEY = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
     private YouTubePlayer youtubePlayer;
 
     public FragmentYoutubePlayer() {

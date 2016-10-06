@@ -126,9 +126,6 @@ public class FragmentChannelDetail extends Fragment {
                     detail = playlist.getString("detail");
                     videoID = playlist.getString("video_id");
 
-                    Log.i("test",videoType);
-                    Log.i("test",Boolean.valueOf(videoType.equals("youtube")).toString());
-
                     channelDetaileds.add(new ChannelDetailed(videoImg,videoName,videoType,detail,videoID));
                     adapter_channelDetailed.notifyDataSetChanged();
                 }

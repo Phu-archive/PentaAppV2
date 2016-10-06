@@ -28,7 +28,6 @@ public class ActivityVideoPage extends AppCompatActivity {
         transaction.replace(R.id.video_player_holder, fragmentYoutubePlayer);
         transaction.commit();
 
-
     }
 
     @Override
